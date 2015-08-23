@@ -29,6 +29,7 @@
 				// optional parameters
 				trials[i].is_html = (typeof params.is_html === 'undefined') ? false : params.is_html;
 				trials[i].prompt = (typeof params.prompt === 'undefined') ? "" : params.prompt;
+ 				trials[i].css_id = (typeof params.css_id === 'undefined') ? 'jspsych-single-stim-stimulus' : params.css_id;
 			}
 			return trials;
 		};
@@ -50,12 +51,12 @@
 			if (!trial.is_html) {
 				display_element.append($('<img>', {
 					src: trial.a_path,
-					id: 'jspsych-single-stim-stimulus'
+					id: trial.css_id
 				}));
 			} else {
 				display_element.append($('<div>', {
 					html: trial.a_path,
-					id: 'jspsych-single-stim-stimulus'
+					id: trial.css_id
 				}));
 			}
 
@@ -101,7 +102,7 @@
 
 				// after a valid response, the stimulus will have the CSS class 'responded'
 				// which can be used to provide visual feedback that a response was recorded
-				$("#jspsych-single-stim-stimulus").addClass('responded');
+				$("#"+trial.css_id).addClass('responded');
 
 				// only record the first response
 				if(response.key == -1){
