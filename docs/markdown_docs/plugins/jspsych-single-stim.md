@@ -17,6 +17,7 @@ prompt | string | "" | This string can contain HTML markup. Any content here wil
 timing_stim | numeric | -1 | How long to show the stimulus for in milliseconds. If the value is -1, then the stimulus will be shown until the subject makes a response.
 timing_response | numeric | -1 | How long to wait for the subject to make a response before ending the trial in milliseconds. If the subject fails to make a response before this timer is reached, the the subject's response will be recorded as -1 for the trial and the trial will end. If the value of this parameter is -1, then the trial will wait for a response indefinitely.
 response_ends_trial | boolean | true | If true, then the trial will end whenever the subject makes a response (assuming they make their response before the cutoff specified by the `timing_response` parameter). If false, then the trial will continue until the value for `timing_response` is reached. You can use this parameter to force the subject to view a stimulus for a fixed amount of time, even if they respond before the time is complete.
+css_id | string | *undefined* | Used to specify a custom CSS style to be used for presentation of the stimuli. If no value is defined, the default CSS style for the plugin will be used.
 
 ## Data Generated
 
